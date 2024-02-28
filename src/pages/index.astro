@@ -5,8 +5,17 @@ import Card from "../components/Card.astro";
 
 <Layout title="årsoppgave">
 	<main>
-		<h1>hgvcxhjjdfgjh</h1>
+		<h1>placehloder text</h1>
 	</main>
+
+	<div class="videolist">
+		<Card title="test video" id="1" />
+		<Card title="test video" id="1" />
+		<Card title="test video" id="1" />
+		<Card title="test video" id="1" />
+		<Card title="test video" id="1" />
+	</div>
+
 </Layout>
 
 <style>
@@ -15,16 +24,29 @@ import Card from "../components/Card.astro";
 		padding: 1rem;
 		width: 800px;
 		max-width: calc(100% - 2rem);
-		color: white;
+		color: var(--text);
 		font-size: 20px;
 		line-height: 1.6;
 	}
 
 	h1 {
-		font-size: 4rem;
+		font-size: 2rem;
 		font-weight: 700;
 		line-height: 1;
 		text-align: center;
 		margin-bottom: 1em;
+	}
+
+	.videolist {
+		display: flex;
+		flex-wrap: wrap;
+		margin: auto;
+		width: 90%;
+	}
+
+	@media (max-width: 800px) {
+		.videolist {
+			flex-direction: column;
+		}
 	}
 </style>

@@ -18,26 +18,40 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		<nav>
+			<a href="/">Home</a>
+			<a href="/about">About</a>
+		</nav>
+
 		<slot />
 	</body>
 </html>
+
+<script>
+	// make current site bold in nav
+	const links = document.querySelectorAll("nav a");
+	links.forEach((link) => {
+		if (link.href === window.location.href) {
+			link.style.fontWeight = "bold";
+		}
+	});
+</script>
+
 <style is:global>
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+		--accent: #8800ff;
+		--background: #13151a;
+		--background-light: #1e2127;
+		--background-lighter: #23262d;
+		--background-lighterer: #2d3037;
+		--text: #f0f0f0;
 	}
+
 	html {
 		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
+		background-color: var(--background);
 	}
+
 	code {
 		font-family:
 			Menlo,
@@ -48,5 +62,20 @@ const { title } = Astro.props;
 			Bitstream Vera Sans Mono,
 			Courier New,
 			monospace;
+	}
+
+	nav {
+		background-color: var(--background-light);
+		padding: 1rem;
+	}
+
+	nav a {
+		color: var(--text);
+		text-decoration: none;
+		margin-right: 1rem;
+	}
+
+	nav a:hover {
+		text-decoration: underline;
 	}
 </style>
