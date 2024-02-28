@@ -1,0 +1,21 @@
+---
+import Card from "../components/Card.astro";
+---
+
+<div class="videolist">
+	<Card title="test video" id="1" />
+	<Card title="test video" id="1" />
+	<Card title="test video" id="1" />
+	<Card title="test video" id="1" />
+	<Card title="test video" id="1" />
+</div>
+
+<style>
+	.videolist {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		margin: auto;
+		width: 90%;
+		background-color: var(--background-light);
+	}
+</style>

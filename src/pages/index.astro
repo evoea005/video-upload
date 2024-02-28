@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
+import Videolist from "../components/Videolist.astro";
 ---
 
 <Layout title="årsoppgave">
@@ -8,13 +9,7 @@ import Card from "../components/Card.astro";
 		<h1>placehloder text</h1>
 	</main>
 
-	<div class="videolist">
-		<Card title="test video" id="1" />
-		<Card title="test video" id="1" />
-		<Card title="test video" id="1" />
-		<Card title="test video" id="1" />
-		<Card title="test video" id="1" />
-	</div>
+	<Videolist />
 </Layout>
 
 <style>
@@ -34,19 +29,5 @@ import Card from "../components/Card.astro";
 		line-height: 1;
 		text-align: center;
 		margin-bottom: 1em;
-	}
-
-	/* TODO: somehow make this centered */
-	.videolist {
-		display: flex;
-		flex-wrap: wrap;
-		margin: auto;
-		width: 90%;
-	}
-
-	@media (max-width: 800px) {
-		.videolist {
-			flex-direction: column;
-		}
 	}
 </style>
