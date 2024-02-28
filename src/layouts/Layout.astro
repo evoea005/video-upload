@@ -29,16 +29,6 @@ import Footer from "../components/Footer.astro";
 	</body>
 </html>
 
-<script>
-	// make current site bold in nav
-	const links = document.querySelectorAll("nav a");
-	links.forEach((link) => {
-		if (link.href === window.location.href) {
-			link.style.fontWeight = "bold";
-		}
-	});
-</script>
-
 <style is:global>
 	:root {
 		--accent: #8800ff;
@@ -74,3 +64,13 @@ import Footer from "../components/Footer.astro";
 			monospace;
 	}
 </style>
+
+<script>
+	// make current site bold in nav
+	const links = document.querySelectorAll("nav a");
+	links.forEach((link) => {
+		if (link.href === window.location.href) {
+			link.style.fontWeight = "bold";
+		}
+	});
+</script>

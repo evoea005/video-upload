@@ -10,7 +10,6 @@
 <style>
 	footer {
 		background-color: var(--background-light);
-		color: #fff;
 		padding: 20px;
 		text-align: center;
 		width: 100%;
@@ -24,10 +23,17 @@
 
 	footer ul li {
 		display: inline;
+		opacity: 0.7;
+		transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+		margin: 0 10px;
+	}
+	
+	footer ul li:hover {
+		opacity: 1;
 	}
 
 	footer ul li a {
-		color: #fff;
+		color: var(--text);
 		text-decoration: none;
 	}
 </style>
