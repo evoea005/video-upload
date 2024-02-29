@@ -67,8 +67,8 @@ import Footer from "../components/Footer.astro";
 
 <script>
 	// make current site bold in nav
-	const links = document.querySelectorAll("nav a");
-	links.forEach((link) => {
+	const links: NodeListOf<HTMLAnchorElement> = document.querySelectorAll("nav a");
+	links.forEach((link: HTMLAnchorElement) => {
 		if (link.href === window.location.href) {
 			link.style.fontWeight = "bold";
 		}
