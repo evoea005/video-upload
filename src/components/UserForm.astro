@@ -1,0 +1,48 @@
+---
+import Button from "../components/Button.astro";
+
+interface Props {
+	type: "Register" | "Log in";
+}
+
+const { type } = Astro.props;
+---
+
+<form action="/register" method="post">
+	<label for="username">Username</label>
+	<input type="text" id="username" name="username" required />
+	<label for="password">Password</label>
+	<input type="password" id="password" name="password" required />
+	<Button type="submit" text={type} />
+</form>
+
+<style>
+	form {
+		display: flex;
+		flex-direction: column;
+	}
+
+	label {
+		margin-bottom: 0.5rem;
+		user-select: none;
+	}
+
+	input {
+		box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+		border: none;
+		outline: none;
+		border-radius: 0.25rem;
+		padding: 0.5rem;
+		margin-bottom: 1rem;
+		background-color: var(--background-2);
+		color: var(--text);
+	}
+
+	input:focus {
+		outline: 2px solid var(--accent);
+	}
+
+	button {
+		margin-top: 1rem;
+	}
+</style>

@@ -1,12 +1,21 @@
 <nav>
-	<a href="/" draggable="false">Home</a>
-	<a href="/about" draggable="false">About</a>
+	<div class="navleft">
+		<a href="/" draggable="false">Home</a>
+		<a href="/about" draggable="false">About</a>
+	</div>
+
+	<div class="navright">
+		<a href="/login" draggable="false">Login</a>
+		<a href="/register" draggable="false">Register</a>
+	</div>
 </nav>
 
 <style>
 	nav {
 		background-color: var(--background-2);
 		padding: 0.5rem;
+		display: flex;
+		flex-direction: row;
 	}
 
 	nav a {
@@ -20,5 +29,9 @@
 
 	nav a:hover {
 		text-decoration: underline;
+	}
+
+	.navright {
+		margin-left: auto;
 	}
 </style>
