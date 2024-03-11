@@ -1,0 +1,82 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div class="container">
+	<div class="title">
+		<img src="icons/chevron-up.svg" draggable="false"/>
+		<h2>{title}</h2>
+	</div>
+
+	<div class="content">
+		<slot />
+	</div>
+</div>
+
+<script>
+	const dropdowns = document.querySelectorAll(".container");
+
+	dropdowns.forEach((dropdown) => {
+		dropdown.querySelector(".title").addEventListener("click", () => {
+			const content = dropdown.querySelector(".content");
+			const title = dropdown.querySelector(".title");
+			const chevron = title.querySelector("img");
+
+			if (content.style.maxHeight == "100px") {
+				content.style.maxHeight = "0px";
+				chevron.style.transform = "rotate(180deg)";
+
+				title.style.borderRadius = "5px";
+			} else {
+				content.style.maxHeight = "100px";
+				chevron.style.transform = "rotate(0deg)";
+				title.style.borderRadius = "5px 5px 0 0";
+			}
+		});
+	});
+</script>
+
+<style>
+	.container {
+		margin-bottom: 20px;
+	}
+
+	.title {
+		background-color: var(--background-3);
+		padding: 8px;
+		border-radius: 5px;
+		margin-bottom: 0px;
+		cursor: pointer;
+		display: flex;
+		flex-direction: row;
+		gap: 10px;
+		transition: border-radius 0.1s;
+	}
+
+	.title img {	
+		filter: invert(1);
+		user-select: none;
+		transform: rotate(180deg);
+		transition: all 0.3s;
+	}
+
+	.title h2 {
+		margin: 0;
+		user-select: none;
+		font-size: 1.5rem;
+	}
+
+	.content {
+		/* background-color: green; */
+		max-height: 0px;
+		overflow: hidden;
+		background-color: var(--background-2);
+		transition: all 0.3s;
+		padding: 0 10px;
+		border-radius: 0 0 5px 5px;
+	}
+</style>
