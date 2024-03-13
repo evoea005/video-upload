@@ -11,6 +11,17 @@
 	</div>
 </nav>
 
+<script>
+	// make current site bold in navbar
+	const links: NodeListOf<HTMLAnchorElement> = document.querySelectorAll("nav a");
+
+	links.forEach((link: HTMLAnchorElement) => {
+		if (link.href === window.location.href) {
+			link.style.fontWeight = "bold";
+		}
+	});
+</script>
+
 <style>
 	nav {
 		background-color: var(--background-2);

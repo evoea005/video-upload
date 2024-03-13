@@ -55,14 +55,3 @@ import Footer from "../components/Footer.astro";
 		overflow-x: hidden;
 	}
 </style>
-
-<script>
-	// make current site bold in navbar
-	const links: NodeListOf<HTMLAnchorElement> = document.querySelectorAll("nav a");
-
-	links.forEach((link: HTMLAnchorElement) => {
-		if (link.href === window.location.href) {
-			link.style.fontWeight = "bold";
-		}
-	});
-</script>
