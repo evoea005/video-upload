@@ -8,11 +8,11 @@ interface Props {
 const { type } = Astro.props;
 ---
 
-<form action="/register" method="post">
+<form action="/register" method="POST">
 	<label for="username">Username</label>
-	<input type="text" id="username" name="username" required />
+	<input type="text" id="username" name="username" required minlength="2"/>
 	<label for="password">Password</label>
-	<input type="password" id="password" name="password" required />
+	<input type="password" id="password" name="password" required minlength="6"/>
 	<Button type="submit" text={type} />
 </form>
 

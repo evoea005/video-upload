@@ -1,23 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import UserForm from "../components/UserForm.astro";
-
-if (Astro.request.method === "POST") {
-	try {
-		const data = await Astro.request.formData();
-		const username = data.get("username");
-		const password = data.get("password");
-	} catch (error) {
-		if (error instanceof Error) {
-			console.error(error.message);
-		}
-	}
-}
 ---
 
 <Layout title="Register">
 	<main>
-		<UserForm type="Register"/>
+		<UserForm type="Register" />
 	</main>
 </Layout>
 
