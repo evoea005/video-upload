@@ -1,4 +1,5 @@
 ---
+import { AstroError } from "astro/errors";
 import Button from "../components/Button.astro";
 
 interface Props {
@@ -6,6 +7,34 @@ interface Props {
 }
 
 const { type } = Astro.props;
+
+
+if (Astro.request.method === "POST") {
+	const data = await Astro.request.formData()
+	const username = data.get("username")
+	const password = data.get("password")
+
+	await fetch(Astro.url.origin + "/api/register", {
+		method: "POST",
+		body: JSON.stringify({ username, password }),
+		headers: {
+			"Content-Type": "application/json",
+		},
+	});
+	
+	// if (type === "Register") {
+	// 	// Register the user
+	// 	await fetch(Astro.url.origin + "/api/register", {
+	// 		method: "POST",
+	// 		body: JSON.stringify({ username, password }),
+	// 		headers: {
+	// 			"Content-Type": "application/json",
+	// 		},
+	// 	});
+	// } else {
+	// 	// Log in the user
+	// }
+}
 ---
 
 <form action="/register" method="POST">
