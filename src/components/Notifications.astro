@@ -1,0 +1,23 @@
+---
+import Notification from "../components/Notification.astro";
+---
+
+<div class="notifications">
+	<Notification type="success" message="test success"></Notification>
+	<Notification type="error" message="test error"></Notification>
+	<Notification type="warning" message="test warning"></Notification>
+	<Notification type="info" message="test info"></Notification>
+</div>
+
+<style>
+	.notifications {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		position: absolute;
+		right: 0;
+		top: 10%;
+		bottom: 10%;
+		width: 200px;
+	}
+</style>

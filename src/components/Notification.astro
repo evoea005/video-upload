@@ -1,0 +1,62 @@
+---
+interface Props {
+	type: "info" | "warning" | "error" | "success";
+	message: string;
+}
+
+const { type, message } = Astro.props;
+---
+
+<div class=`alert alert-${type}`>
+	<div class="alerttop">
+		<b>{type.charAt(0).toUpperCase() + type.slice(1)}:</b>
+		<button><img src="icons/x.svg" alt="Close" /></button>
+	</div>
+	{message}
+</div>
+
+<style>
+	.alert {
+		border-radius: 8px 0 0 8px;
+		padding: 16px;
+		user-select: none;
+		background-color: var(--background-3);
+		font-size: 16px;
+		color: var(--text);
+		border-right: none !important;
+	}
+
+	.alert-info {
+		border: solid var(--info);
+	}
+
+	.alert-warning {
+		border: solid var(--warning);
+	}
+
+	.alert-error {
+		border: solid var(--error);
+	}
+
+	.alert-success {
+		border: solid var(--success);
+	}
+
+	.alerttop {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	button {
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+		filter: invert(0.8);
+		transition: filter 0.2s;
+	}
+
+	button:hover {
+		filter: invert(1);
+	}
+</style>
