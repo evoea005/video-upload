@@ -16,16 +16,6 @@ export const POST = async ({ request }) => {
 
 	const passwordhash = await sha256(password);
 
-	// not working hahhahahaahaha
-
-	// await fetch("http://localhost:4321/api/checkusername")
-	// 	.then((res) => res.json())
-	// 	.then((data) => {
-	// 		if (data.found) {
-	// 			return new Response({ status: 200, body: { success: false } });
-	// 		}
-	// 	});
-
 	con.connect(function (err) {
 		if (err) throw err;
 		const sql = `INSERT INTO user (username, password) VALUES ('${username}', '${passwordhash}')`;

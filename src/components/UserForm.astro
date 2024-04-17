@@ -8,40 +8,40 @@ interface Props {
 
 const { type } = Astro.props;
 
-
 if (Astro.request.method === "POST") {
-	const data = await Astro.request.formData()
-	const username = data.get("username")
-	const password = data.get("password")
+	const data = await Astro.request.formData();
+	const username = data.get("username");
+	const password = data.get("password");
 
-	await fetch(Astro.url.origin + "/api/register", {
-		method: "POST",
-		body: JSON.stringify({ username, password }),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	});
-	
-	// if (type === "Register") {
-	// 	// Register the user
-	// 	await fetch(Astro.url.origin + "/api/register", {
-	// 		method: "POST",
-	// 		body: JSON.stringify({ username, password }),
-	// 		headers: {
-	// 			"Content-Type": "application/json",
-	// 		},
-	// 	});
-	// } else {
-	// 	// Log in the user
-	// }
+	let exists = false;
+
+	// TODO: refactor D:
+	await fetch(Astro.url.origin + "/api/checkusername?username=" + username, {
+		method: "GET",
+	})
+		.then((response) => {
+			return response.json();
+		})
+		.then((data) => {
+			exists = data.exists;
+			if (!exists) {
+				fetch(Astro.url.origin + "/api/register", {
+					method: "POST",
+					body: JSON.stringify({ username, password }),
+					headers: {
+						"Content-Type": "application/json",
+					},
+				});
+			}
+		});
 }
 ---
 
 <form action="/register" method="POST">
 	<label for="username">Username</label>
-	<input type="text" id="username" name="username" required minlength="2"/>
+	<input type="text" id="username" name="username" required minlength="2" />
 	<label for="password">Password</label>
-	<input type="password" id="password" name="password" required minlength="6"/>
+	<input type="password" id="password" name="password" required minlength="6" />
 	<Button type="submit" text={type} />
 </form>
 
