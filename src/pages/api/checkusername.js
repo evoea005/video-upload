@@ -1,5 +1,3 @@
-// TODO: MAKE IT WORK FSOFIJhd
-
 import { con } from "./connect";
 
 export const GET = ({ params, request }) => {
