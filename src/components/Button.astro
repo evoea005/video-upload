@@ -2,12 +2,13 @@
 interface Props {
 	text: string;
 	type: "button" | "submit" | "reset";
+	classlist?: string;
 }
 
-const { text, type } = Astro.props;
+const { text, type, classlist } = Astro.props;
 ---
 
-<button type={type} class="button">{text}</button>
+<button type={type} class={`button ${classlist}`}>{text}</button>
 
 <style>
 	.button {

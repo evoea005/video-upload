@@ -1,0 +1,19 @@
+---
+import Button from "./Button.astro";
+import UploadWindow from "./UploadWindow.astro";
+---
+
+<UploadWindow />
+<Button text="Upload" classlist="uploadbutton" />
+
+<script>
+	const uploadbutton = document.querySelector(".uploadbutton") as HTMLElement;
+
+	uploadbutton.addEventListener("click", showUploadWindow);
+
+	function showUploadWindow() {
+		let uploadwindow = document.querySelector("#uploadwindow");
+
+		uploadwindow.style.display = "flex";
+	}
+</script>

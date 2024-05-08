@@ -40,11 +40,6 @@ import Notifications from "../components/Notifications.astro";
 		--background-5: #363a42;
 		--background-6: #3e424b;
 		--text: #f0f0f0;
-
-		--info: #00a8ff;
-		--error: #ff3d71;
-		--success: #05c46b;
-		--warning: #ffa801;
 	}
 
 	html {
@@ -59,5 +54,18 @@ import Notifications from "../components/Notifications.astro";
 		color: var(--text);
 		min-height: 100vh;
 		overflow-x: hidden;
+	}
+
+	.uploadnotification {
+		background: linear-gradient(to right, var(--background-5), var(--background-4)) !important;
+		box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+	}
+
+	.toast_success {
+		border: 2px solid #5ace84;
+	}
+
+	.toast_error {
+		border: 2px solid #ce5a5a;
 	}
 </style>
