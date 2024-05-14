@@ -20,6 +20,33 @@
 			link.style.fontWeight = "bold";
 		}
 	});
+
+	// hide login and register if logged in
+	const response = fetch("/api/checksession", {
+		method: "POST",
+		body: JSON.stringify({ session: localStorage.getItem("session") }),
+		headers: {
+			"Content-Type": "application/json",
+		},
+	})
+		.then((res) => res.json())
+		.then((data) => {
+			if (data.success) {
+				document.querySelector(".navright").innerHTML = `
+				<a href="/" draggable="false">Logout</a>
+			`;
+				document.querySelector(".navright a").style.color = "var(--text)";
+				document.querySelector(".navright a").style.textDecoration = "none";
+				document.querySelector(".navright a").style.marginRight = "1rem";
+				document.querySelector(".navright a").style.display = "inline-block";
+				document.querySelector(".navright a").style.padding = "10px";
+
+				document.querySelector(".navright a").addEventListener("click", () => {
+					localStorage.removeItem("session");
+					window.location.href = "/";
+				});
+			}
+		});
 </script>
 
 <style>

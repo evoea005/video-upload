@@ -19,7 +19,7 @@ export const POST = async ({ request }) => {
 	};
 
 	// if filesize > 1gb
-	if (file.size > 1073741824) {
+	if (file.size > 1 * 1073741824) {
 		return new Response(null, {
 			status: 413,
 		});

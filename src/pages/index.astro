@@ -6,7 +6,7 @@ import UploadButton from "../components/UploadButton.astro";
 
 <Layout title="årsoppgave">
 	<main>
-		<h1>placehloder text</h1>
+		<h1></h1>
 
 		<div class="center upload">
 			<UploadButton />
@@ -15,6 +15,22 @@ import UploadButton from "../components/UploadButton.astro";
 		<Videolist />
 	</main>
 </Layout>
+
+<script>
+	const response = fetch("/api/checksession", {
+		method: "POST",
+		body: JSON.stringify({ session: localStorage.getItem("session") }),
+		headers: {
+			"Content-Type": "application/json",
+		},
+	})
+		.then((res) => res.json())
+		.then((data) => {
+			if (data.success) {
+				document.querySelector("h1").innerHTML = "Hello, " + data.username;
+			}
+		});
+</script>
 
 <style>
 	main {
