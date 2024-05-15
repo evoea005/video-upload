@@ -1,0 +1,22 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+
+const userid = Astro.url.searchParams.get("user") || "";
+const video = Astro.url.searchParams.get("video") || "";
+
+const videopath = `videos/${userid}/${video}`;
+---
+
+<Layout title={video}>
+	<video src={videopath} width="30%" controls></video>
+</Layout>
+
+<style>
+	video {
+		margin: auto;
+		margin-top: 20px;
+		display: block;
+		border-radius: 10px;
+	}
+</style>
