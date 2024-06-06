@@ -34,12 +34,14 @@
 			if (data.success) {
 				document.querySelector(".navright").innerHTML = `
 				<a href="/" draggable="false">Logout</a>
-			`;
-				document.querySelector(".navright a").style.color = "var(--text)";
-				document.querySelector(".navright a").style.textDecoration = "none";
-				document.querySelector(".navright a").style.marginRight = "1rem";
-				document.querySelector(".navright a").style.display = "inline-block";
-				document.querySelector(".navright a").style.padding = "10px";
+				`;
+
+				let nav_a = document.querySelector(".navright a") as HTMLElement;
+				nav_a.style.color = "var(--text)";
+				nav_a.style.textDecoration = "none";
+				nav_a.style.marginRight = "1rem";
+				nav_a.style.display = "inline-block";
+				nav_a.style.padding = "10px";
 
 				document.querySelector(".navright a").addEventListener("click", () => {
 					localStorage.removeItem("session");

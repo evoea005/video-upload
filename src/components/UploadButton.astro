@@ -1,4 +1,6 @@
 ---
+// @ts-nocheck
+
 import Button from "./Button.astro";
 import UploadWindow from "./UploadWindow.astro";
 ---
@@ -7,6 +9,8 @@ import UploadWindow from "./UploadWindow.astro";
 <Button text="Upload" classlist="uploadbutton" />
 
 <script>
+	// @ts-nocheck
+
 	const uploadbutton = document.querySelector(".uploadbutton") as HTMLElement;
 
 	uploadbutton.addEventListener("click", showUploadWindow);
